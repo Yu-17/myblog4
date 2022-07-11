@@ -1,0 +1,20 @@
+<h2>Add New Post</h2>
+<% if @post.errors.any? %>
+    <ul>
+        <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @post do |f| %>
+    <p>
+        <%= f.text_field :title, placeholder: 'enter title' %>
+    </p>
+    <p>
+        <%= f.text_area :body, placeholder: 'enter body text' %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
